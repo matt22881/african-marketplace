@@ -5,7 +5,12 @@ module.exports = {
   find,
   findBy,
   findById,
+  getItemsByUserId
 };
+
+function getItemsByUserId(id){
+  return db('items').where({'items.user_id': id})
+}
 
 function find(department) {
   const query = db('users').select('id', 'username', 'department');
@@ -32,3 +37,4 @@ function findById(id) {
     .where({ id })
     .first();
 }
+
