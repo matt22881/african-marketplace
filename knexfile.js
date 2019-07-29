@@ -1,3 +1,4 @@
+const productionDbConnection = process.env.DATABASE_URL
 module.exports = {
   development: {
     client: 'sqlite3',
@@ -22,4 +23,11 @@ module.exports = {
       directory: './database/seeds',
     },
   },
+  production: {
+    client: "pg",
+    connection: "productionDbConnection",
+    migrations: {
+      directory: './database/migrations'
+    }
+  }
 };
