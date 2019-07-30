@@ -19,7 +19,7 @@ router.post("/additem", restricted, validateItemsContent, (req, res) => {
 
 
 //Get Items
-router.get("/", (req, res) => {
+router.get("/", restricted, (req, res) => {
   Items.getItems()
     .then(items => {
       res.status(200).json(items);
