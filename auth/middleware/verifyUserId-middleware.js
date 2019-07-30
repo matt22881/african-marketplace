@@ -1,3 +1,5 @@
+const Users = require('../../users/users-model.js')
+
 function verifyUserId(req, res, next) {
     const id = req.params.id;
   

@@ -1,9 +1,11 @@
 const router = require('express').Router();
 
-const Users = require('./users-model.js');
+const Users = require('./users-model');
 const restricted = require('../auth/middleware/restricted-middleware.js');
-const verifyUserId = require('../auth/middleware/verifyUserId-middleware.js')
+const verifyUserId = require('../auth/middleware/verifyUserId-middleware.js');
 
+
+//get all users
 router.get('/', restricted, (req, res) => {
   console.log('req.jwtToken', req.jwtToken)
   const department = req.jwtToken.department
@@ -18,6 +20,7 @@ router.get('/', restricted, (req, res) => {
   }
 });
 
+//get a user
 router.get("/:id", verifyUserId, (req, res) => {
   const id = req.params.id;
 
@@ -30,6 +33,7 @@ router.get("/:id", verifyUserId, (req, res) => {
     });
 });
 
+//get a users items
 router.get("/:id/items", restricted, verifyUserId, (req, res) => {
   const id = req.params.id;
 

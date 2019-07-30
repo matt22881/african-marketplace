@@ -1,3 +1,4 @@
+const Items = require('../../items/items-model.js')
 module.exports = function verifyItemId(req, res, next) {
     const id = req.params.id;
   
