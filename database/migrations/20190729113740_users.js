@@ -9,14 +9,14 @@ exports.up = function(knex) {
       users.string('password', 128).notNullable();
       users.string('department', 128)
     })
-    .createTable('items', tbl => {
-        tbl.increments();
-        tbl.text('name');
-        tbl.text('description');
-        tbl.text('price');
-        tbl.text('location');
-        tbl.text('category');
-        tbl.integer('user_id')
+    .createTable('items', items => {
+        items.increments();
+        items.text('name');
+        items.text('description');
+        items.text('price');
+        items.text('location');
+        items.text('category');
+        items.integer('user_id')
           .unsigned()
           .notNullable()
           .references('id')
