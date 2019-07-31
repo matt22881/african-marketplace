@@ -5,7 +5,8 @@ module.exports = {
   addItem,
   getItemsById,
   updateItem,
-  deleteItem
+  deleteItem,
+  find
 };
 
 function getItems() {
@@ -33,3 +34,13 @@ function deleteItem(id) {
     .where({ id })
     .del();
 }
+
+function find(category) {
+  const query = db('items').select('id', 'name', 'category');
+  if(category === null){
+    return query
+  } else if (category) {
+    query.where({ category });
+  }
+  return query;
+} 
