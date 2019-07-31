@@ -5,7 +5,8 @@ module.exports = {
   find,
   findBy,
   findById,
-  getItemsByUserId
+  getItemsByUserId,
+  deleteUser
 };
 
 function getItemsByUserId(id){
@@ -36,5 +37,11 @@ function findById(id) {
   return db('users')
     .where({ id })
     .first();
+}
+
+function deleteUser(id) {
+  return db('users')
+    .where({ id })
+    .del();
 }
 
