@@ -53,4 +53,17 @@ router.get("/:id/items", restricted, verifyUserId, (req, res) => {
     });
 });
 
+//delete a user by id
+router.delete("/:id", restricted, (req, res) => {
+  const id = req.params.id;
+
+  Users.deleteUser(id)
+    .then(deletedUser => {
+      res.status(200).json({ message: "User successfully deleted." });
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
