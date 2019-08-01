@@ -93,4 +93,17 @@ router.get('/category', restricted, (req, res) => {
   }
 });
 
+//getItemsbyCatbyId
+router.get("/category/:id",  (req, res) => {
+  const id = req.params.id;
+
+  Items.getItemsById(id)
+    .then(item => {
+      res.status(200).json(item);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;

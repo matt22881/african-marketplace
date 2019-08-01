@@ -6,7 +6,8 @@ module.exports = {
   getItemsById,
   updateItem,
   deleteItem,
-  find
+  find,
+  getItemsByCategory
 };
 
 function getItems() {
@@ -15,6 +16,12 @@ function getItems() {
 
 function addItem(item) {
   return db("items").insert(item, "id");
+}
+
+function getItemsByCategory(id) {
+  return db("items")
+    .where({ category })
+    .first();
 }
 
 function getItemsById(id) {
