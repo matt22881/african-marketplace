@@ -16,6 +16,7 @@ exports.up = function(knex) {
         items.text('price');
         items.text('location');
         items.text('category');
+        items.string('URL')
         items.integer('user_id')
           .unsigned()
           .notNullable()

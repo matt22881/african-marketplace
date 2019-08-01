@@ -45,11 +45,10 @@ router.get("/:id", verifyItemId, (req, res) => {
 
 
 //update Users Item
-router.put(
-  "/:id",
-  restricted,
-  verifyItemId,
-  validateItemsContent,
+router.put("/:id", 
+restricted, 
+verifyItemId, 
+validateItemsContent,
   (req, res) => {
     const id = req.params.id;
     const changes = req.body;
@@ -82,7 +81,7 @@ router.delete("/:id", restricted, verifyItemId, (req, res) => {
 // get items by category
 router.get('/category', restricted, (req, res) => {
   console.log('req.jwtToken', req.jwtToken)
-  const category = req.jwtToken.category
+  const category = req.body.category
   if (category === null) {
     res.status(400).json({message: "category not valid or missing"})
   } else {
