@@ -18,7 +18,7 @@ function addItem(item) {
   return db("items").insert(item, "id");
 }
 
-function getItemsByCategory(id) {
+function getItemsByCategory(category) {
   return db("items")
     .where({ category })
     .first();

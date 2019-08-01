@@ -94,10 +94,10 @@ router.get('/category', restricted, (req, res) => {
 });
 
 //getItemsbyCatbyId
-router.get("/category/:id",  (req, res) => {
-  const id = req.params.id;
+router.get("/category/:category",  (req, res) => {
+  const category = req.params.id;
 
-  Items.getItemsById(id)
+  Items.getItemsByCategory(category)
     .then(item => {
       res.status(200).json(item);
     })
