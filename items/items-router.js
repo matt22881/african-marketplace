@@ -78,21 +78,6 @@ router.delete("/:id", restricted, verifyItemId, (req, res) => {
 });
 
 
-// get items by category
-router.get('/category', restricted, (req, res) => {
-  console.log('req.jwtToken', req.jwtToken)
-  const category = req.body.category
-  if (category === null) {
-    res.status(400).json({message: "category not valid or missing"})
-  } else {
-    Items.find(category)
-      .then(items => {
-        res.json(items);
-      })
-      .catch(err => res.send(err));
-  }
-});
-
 //getItemsbyCatbyId
 router.get("/category/:id",  (req, res) => {
   const id = req.params.id;
