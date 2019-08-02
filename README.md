@@ -15,7 +15,7 @@ Authors
 Kevin Sims - Development - kevinsims1
 
 
-#END POINTS
+# END POINTS
 
 Get items by Category
 /items/category/:category
