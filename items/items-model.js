@@ -21,7 +21,7 @@ function addItem(item) {
 function getItemsByCategory(category) {
   return db("items")
     .where({ category })
-    .first();
+    
 }
 
 function getItemsById(id) {
