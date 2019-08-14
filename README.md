@@ -36,7 +36,7 @@ _Delpoyed URL:_ [https://lbs-african-marketplace.herokuapp.com](https://lbs-afri
 
 | Method | Endpoint         | Token Required | Description                                                                                             |
 | ------ | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
-| POST   | `/auth/register` | no             | Registers a new user. Requires username, password, and department. Returns id, username, and department |
+| POST   | `/auth/register` | no             | Registers a new user. Requires username, password, and department. Returns id, username, and department. |
 | POST   | `/auth/login`    | no             | Signs in user and returns a token. Requires username and password. Returns a token.                     |
 
 ### User Routes
