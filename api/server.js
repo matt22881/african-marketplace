@@ -1,19 +1,19 @@
-const express = require('express')
-const cors = require('cors')
-const helmet = require('helmet')
+const express = require("express");
+const cors = require("cors");
+const helmet = require("helmet");
 
-const configureRoutes = require('../config/routes.js')
+const configureRoutes = require("../config/routes.js");
 
-const server = express()
+const server = express();
 
-server.use(helmet())
-server.use(express.json())
-server.use(cors())
+server.use(helmet());
+server.use(express.json());
+server.use(cors());
 
 configureRoutes(server);
 
-server.get('/', (req, res) => {
-    res.send("It's alive!");
-  });
+server.get("/", (req, res) => {
+  res.send("Welcome to the African Marketplace API 😀");
+});
 
-  module.exports = server
+module.exports = server;
