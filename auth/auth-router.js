@@ -14,7 +14,8 @@ router.post("/register", (req, res) => {
   if (department === "seller" || department === "buyer") {
     Users.add(user)
       .then(user => {
-        res.status(201).json(user);
+        const { id, username, department } = user;
+        res.status(201).json({ id, username, department });
       })
       .catch(error => {
         res.status(500).json(error);

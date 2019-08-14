@@ -1,6 +1,6 @@
 # African Marketplace
 
-_Delpoyed URL:_ [pending]()
+_Delpoyed URL:_ [https://lbs-african-marketplace.herokuapp.com](https://lbs-african-marketplace.herokuapp.com)
 
 ## Models
 
@@ -34,10 +34,10 @@ _Delpoyed URL:_ [pending]()
 
 ### Auth Routes
 
-| Method | Endpoint         | Token Required | Description                                                                         |
-| ------ | ---------------- | -------------- | ----------------------------------------------------------------------------------- |
-| POST   | `/auth/register` | no             | Registers a new user. Requires username, password, and department.                  |
-| POST   | `/auth/login`    | no             | Signs in user and returns a token. Requires username and password. Returns a token. |
+| Method | Endpoint         | Token Required | Description                                                                                             |
+| ------ | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
+| POST   | `/auth/register` | no             | Registers a new user. Requires username, password, and department. Returns id, username, and department |
+| POST   | `/auth/login`    | no             | Signs in user and returns a token. Requires username and password. Returns a token.                     |
 
 ### User Routes
 
