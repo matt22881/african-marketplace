@@ -36,8 +36,8 @@ _Delpoyed URL:_ [https://lbs-african-marketplace.herokuapp.com](https://lbs-afri
 
 | Method | Endpoint         | Token Required | Description                                                                                             |
 | ------ | ---------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
-| POST   | `/auth/register` | no             | Registers a new user. Requires username, password, and department. Returns id, username, and department. |
-| POST   | `/auth/login`    | no             | Signs in user and returns a token. Requires username and password. Returns a token.                     |
+| POST   | `/auth/register` | no             | Registers a new user <br> Required: username, password, and department. <br>Returns id, username, and department. |
+| POST   | `/auth/login`    | no             | Signs in user and returns a token.<br> Required: username and password.<br> Returns a token.                     |
 
 ### User Routes
 
@@ -54,7 +54,7 @@ _Delpoyed URL:_ [https://lbs-african-marketplace.herokuapp.com](https://lbs-afri
 | ------ | ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------- |
 | GET    | `/items`           | yes            | Returns all items                                                                                               |
 | GET    | `/items/:id`       | yes            | Returns a single item                                                                                           |
-| POST   | `/items/additem`   | yes            | Adds an item to the database `user_id` is required. All other values in the model are optional, but encouraged. |
+| POST   | `/items/additem`   | yes            | Adds an item to the database <br> Required: `user_id` <br> All other values in the model are optional, but encouraged. |
 | PUT    | `/items/:id`       | yes            | Edits a single item                                                                                             |
 | DELETE | `/items/:id`       | yes            | Deletes a single item                                                                                           |
 | GET    | `/items/:category` | yes            | Gets all items in a category                                                                                    |
