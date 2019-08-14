@@ -4,19 +4,13 @@ const Users = require("./users-model");
 const restricted = require("../auth/middleware/restricted-middleware.js");
 const verifyUserId = require("../auth/middleware/verifyUserId-middleware.js");
 
-//get all users if the user is a seller
-//if they are a buyer they can only see other buyers.
+//get all users
 router.get("/", restricted, (req, res) => {
-  const department = req.jwtToken.department;
-  if (department === null) {
-    res.status(400).json({ message: "department not valid or missing" });
-  } else {
-    Users.find(department)
-      .then(users => {
-        res.json(users);
-      })
-      .catch(err => res.send(err));
-  }
+  Users.find()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(err => res.send(err));
 });
 
 //get a user

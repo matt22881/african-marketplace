@@ -10,15 +10,18 @@ router.post("/register", (req, res) => {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 10); // 2 ^ n
   user.password = hash;
-  console.log(req.body);
-
-  Users.add(user)
-    .then(user => {
-      res.status(201).json(user);
-    })
-    .catch(error => {
-      res.status(500).json(error);
-    });
+  const { department } = req.body;
+  if (department === "seller" || department === "buyer") {
+    Users.add(user)
+      .then(user => {
+        res.status(201).json(user);
+      })
+      .catch(error => {
+        res.status(500).json(error);
+      });
+  } else {
+    res.send(`Department must be "buyer" or "seller.`);
+  }
 });
 
 router.post("/login", (req, res) => {

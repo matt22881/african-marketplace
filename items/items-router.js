@@ -2,9 +2,8 @@ const router = require("express").Router();
 
 const Items = require("./items-model.js");
 const restricted = require("../auth/middleware/restricted-middleware.js");
-const validateItemsContent = require('../auth/middleware/validateItemsContent-middleware')
-const verifyItemId = require('../auth/middleware/verifyItemId-middleware.js')
-
+const validateItemsContent = require("../auth/middleware/validateItemsContent-middleware");
+const verifyItemId = require("../auth/middleware/verifyItemId-middleware.js");
 
 //add Item
 router.post("/additem", restricted, validateItemsContent, (req, res) => {
@@ -17,7 +16,6 @@ router.post("/additem", restricted, validateItemsContent, (req, res) => {
     });
 });
 
-
 //Get Items
 router.get("/", restricted, (req, res) => {
   Items.getItems()
@@ -28,7 +26,6 @@ router.get("/", restricted, (req, res) => {
       res.status(500).json(err);
     });
 });
-
 
 //Get Users Items
 router.get("/:id", verifyItemId, (req, res) => {
@@ -43,26 +40,19 @@ router.get("/:id", verifyItemId, (req, res) => {
     });
 });
 
-
 //update Users Item
-router.put("/:id", 
-restricted, 
-verifyItemId, 
-validateItemsContent,
-  (req, res) => {
-    const id = req.params.id;
-    const changes = req.body;
+router.put("/:id", restricted, verifyItemId, validateItemsContent, (req, res) => {
+  const id = req.params.id;
+  const changes = req.body;
 
-    Items.updateItem(id, changes)
-      .then(updatedItem => {
-        res.status(201).json(updatedItem);
-      })
-      .catch(err => {
-        res.status(500).json(err);
-      });
-  }
-);
-
+  Items.updateItem(id, changes)
+    .then(updatedItem => {
+      res.status(201).json(updatedItem);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
 
 //delete users Item
 router.delete("/:id", restricted, verifyItemId, (req, res) => {
@@ -77,12 +67,11 @@ router.delete("/:id", restricted, verifyItemId, (req, res) => {
     });
 });
 
+//get items by category
+router.get("/category/:category", (req, res) => {
+  const category = req.params.category;
 
-//getItemsbyCatbyId
-router.get("/category/:id",  (req, res) => {
-  const id = req.params.id;
-
-  Items.getItemsByCategory(id)
+  Items.getItemsByCategory(category)
     .then(item => {
       res.status(200).json(item);
     })
