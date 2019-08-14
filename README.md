@@ -1,71 +1,60 @@
-# Free Open Source Marketplace BE || NODE.js
+# African Marketplace
 
-***Version 1.0.0***
+_Delpoyed URL:_ [pending]()
 
-# Getting Started
- 
-Clone the repo, cd to the directory, run npm install and node app.js. The server is running at localhost:5000
+## Models
 
-# Built With
+#### users
 
-heroku 
-node - Node.js JavaScript runtime 
-express - Fast, unopinionated, minimalist web framework for node.
-Authors
-Kevin Sims - Development - kevinsims1
-
-
-# END POINTS
-
-Get items by Category
-/items/category/:category
-
-Delete a User by id
-/users/:id
-
-Get all the users
-/users
-
-Get a User by id
-/users/:id
-
-Get a Users Items by user id
-/users/:id/items
-
-Login
-/auth/login
-
-Register || Json Oject
-/auth/register
+```
 {
-	"username": "",
-	"password": "",
-	"department": ""
+	id: integer
+	username: string
+	password: string
+	department: string,  must be "seller" or "buyer"
 }
+```
 
-Add an Item || Json Object
-/items/additem
+#### items
+
+```
 {
-	"name": "",
-	"description": "",
-	"price": #,
-	"location": "",
-	"category": "",
-	"URL": "",
-	"user_id": #
+	id: integer
+	name: text
+	description: text
+	price: float
+	location: text
+	category: text
+	URL: string
+	user_id: integer, references the id of the user the item is referenced to
 }
+```
 
-Get All Items
-/items
+## End Points
 
+### Auth Routes
 
+| Method | Endpoint         | Token Required | Description                                                                         |
+| ------ | ---------------- | -------------- | ----------------------------------------------------------------------------------- |
+| POST   | `/auth/register` | no             | Registers a new user. Requires username, password, and department.                  |
+| POST   | `/auth/login`    | no             | Signs in user and returns a token. Requires username and password. Returns a token. |
 
-# License
+### User Routes
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+| Method | Endpoint           | Token Required | Description                   |
+| ------ | ------------------ | -------------- | ----------------------------- |
+| GET    | `/users`           | yes            | Returns all users             |
+| GET    | `/users/:id`       | yes            | Returns a single user by id   |
+| GET    | `/users/:id/items` | yes            | Returns a single user's items |
+| DELETE | `/users/:id/`      | yes            | Deletes a single user         |
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+### Items Routes
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Copyright 2019 Kevin Sims
+| Method | Endpoint           | Token Required | Description                                                                                                     |
+| ------ | ------------------ | -------------- | --------------------------------------------------------------------------------------------------------------- |
+| GET    | `/items`           | yes            | Returns all items                                                                                               |
+| GET    | `/items/:id`       | yes            | Returns a single item                                                                                           |
+| POST   | `/items/additem`   | yes            | Adds an item to the database `user_id` is required. All other values in the model are optional, but encouraged. |
+| PUT    | `/items/:id`       | yes            | Edits a single item                                                                                             |
+| DELETE | `/items/:id`       | yes            | Deletes a single item                                                                                           |
+| GET    | `/items/:category` | yes            | Gets all items in a category                                                                                    |

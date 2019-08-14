@@ -14,7 +14,7 @@ exports.up = function(knex) {
       items.increments();
       items.text("name");
       items.text("description");
-      items.text("price");
+      items.float("price");
       items.text("location");
       items.text("category");
       items.string("URL");

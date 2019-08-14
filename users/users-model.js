@@ -13,14 +13,9 @@ function getItemsByUserId(id) {
   return db("items").where({ "items.user_id": id });
 }
 
-function find(department) {
+function find() {
   const query = db("users").select("id", "username", "department");
-  // if(department === 'seller'){
   return query;
-  // } else if (department) {
-  query.where({ department });
-  // }
-  // return query;
 }
 
 function findBy(filter) {
