@@ -1,4 +1,5 @@
-# African Marketplace
+# African Marketplace 
+## *(Borrowed to be fallback in case main server never comes online in a usable  fashion)*
 
 _Delpoyed URL:_ [https://lbs-african-marketplace.herokuapp.com](https://lbs-african-marketplace.herokuapp.com)
 
