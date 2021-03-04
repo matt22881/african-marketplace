@@ -1,6 +1,8 @@
 # African Marketplace 
 
-## *(Borrowed to be fallback in case main server never comes online in a usable fashion)*
+##### *(Borrowed to be fallback in case main server never comes online in a usable  fashion)*
+
+##### _**(All credit to Adam Hinkley for writing this, his not our original work)**_
 
 _Delpoyed URL:_ [https://backup-backend-185.herokuapp.com](https://backup-backend-185.herokuapp.com)
 
